@@ -8,6 +8,8 @@ import Dashboard from './pages/dashboard.jsx'
 import Auth from './pages/auth.jsx'
 import Link from './pages/link.jsx'
 import { RouterProvider } from 'react-router-dom'
+import UrlProvider from './context.jsx'
+
 
 const router=createBrowserRouter([{
   element: <AppLayout />,
@@ -38,7 +40,9 @@ const router=createBrowserRouter([{
 
 function App() {
 
-  return <RouterProvider router={router} />
+  return <UrlProvider>  
+    <RouterProvider router={router} />
+</UrlProvider>
 }
 
 export default App

@@ -26,7 +26,7 @@ const Signup = () => {
         name: "",
         email: "",
         password: "",
-        profile_pic:null,
+        profilepic:null,
     })
 
     const navigate = useNavigate();
@@ -58,7 +58,7 @@ const Signup = () => {
                 name: Yup.string().required("Name is required"),
                 email: Yup.string().email("Invaild Email").required("Email is required"),
                 password: Yup.string().min(6,"Password must be at least 6 characters").required("Password is Required"),
-                profile_pic: Yup.mixed().required("Profile picture is required"),
+                profilepic: Yup.mixed().required("Profile picture is required"),
             })
             await schema.validate(formData, { abortEarly: false })
             //api call to login
@@ -98,8 +98,8 @@ const Signup = () => {
             {errors.password && <Error message={errors.password} />}
         </div>
         <div className="space-y-1">
-            <Input type="file" name="profile_pic" accept="image/*" onChange={handleInputChange} />
-            {errors.profile_pic && <Error message={errors.profile_pic} />}
+            <Input type="file" name="profilepic" accept="image/*" onChange={handleInputChange} />
+            {errors.profilepic && <Error message={errors.profilepic} />}
         </div>
       </CardContent>
       <CardFooter>

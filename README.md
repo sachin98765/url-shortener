@@ -1,4 +1,4 @@
-Deployed Site Is- 
+Deployed Site Is- https://url-shortener-lac-omega.vercel.app/
 # url-shortener
   1) ui done
   2) Authentication PArt done

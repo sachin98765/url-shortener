@@ -1,5 +1,6 @@
 # 🔗 URL Shortener
 
+
 A simple and elegant URL shortening web application built with **React**, **Tailwind CSS**, and **Supabase**. Users can sign up, log in, and generate short links that redirect to original URLs.
 
 🚀 [Live Demo](https://url-shortener-lac-omega.vercel.app/)

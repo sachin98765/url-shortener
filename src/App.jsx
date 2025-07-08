@@ -10,6 +10,8 @@ import Link from './pages/link.jsx'
 import { RouterProvider } from 'react-router-dom'
 import UrlProvider from './context.jsx'
 
+import RequireAuth from './components/require-auth.jsx'
+
 
 const router=createBrowserRouter([{
   element: <AppLayout />,
@@ -20,7 +22,11 @@ const router=createBrowserRouter([{
     },
     {
       path: '/dashboard',
-      element: <Dashboard />
+      element: (
+        <RequireAuth>
+      <Dashboard />
+        </RequireAuth>
+      ),
     },
     {
       path: '/auth',
@@ -28,7 +34,11 @@ const router=createBrowserRouter([{
     },
     {
       path: '/link/:id',
-      element: <Link />
+      element: (
+        <RequireAuth>
+          <Link />
+        </RequireAuth>
+      )
     },
     {
       path: '/:id',

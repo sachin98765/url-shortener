@@ -1,13 +1,13 @@
 import { useEffect } from "react"
 import { BarLoader } from "react-spinners"
 import { useNavigate } from "react-router-dom"
-import { urlState } from "../context"
+import { UrlState } from "@/context"
 
 
 function RequireAuth({ children }) {
   const navigate = useNavigate()
 
-  const { loading, isAuthenticated } = urlState()
+  const { loading, isAuthenticated } = UrlState()
 
   useEffect(() => {
     if (!isAuthenticated && loading === false) navigate("/auth")
@@ -19,3 +19,4 @@ function RequireAuth({ children }) {
 }
 
 export default RequireAuth
+

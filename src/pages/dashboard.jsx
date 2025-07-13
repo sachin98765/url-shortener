@@ -9,6 +9,7 @@ import useFetch from "../hooks/use-fetch"
 import { UrlState } from "../context"
 import { getUrls } from "../db/apiUrls"
 import { getClicksForUrls } from "../db/apiClicks"
+import LinkCard from "../components/link-card"
 
 
 const Dashboard = () => {
@@ -35,7 +36,7 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {loading || loadingClicks && <BarLoader width="100%" color="#36d7b7" />}
+      {loading || loadingClicks && <BarLoader width={"100%"} color="#36d7b7" />}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
         <Card>
@@ -43,7 +44,7 @@ const Dashboard = () => {
             <CardTitle>Links Created</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>0</p>
+            <p>{urls?.length}</p>
           </CardContent>
         </Card>
 
@@ -52,7 +53,7 @@ const Dashboard = () => {
             <CardTitle>Total Clicks</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>0</p>
+            <p>{clicks?.length}</p>
           </CardContent>
         </Card>
       </div>
@@ -70,6 +71,9 @@ const Dashboard = () => {
         <Filter className="absolute top-2 right-2 p-1" />
       </div>
       {error && <Error message={error.message}/>}
+      {(filteredUrls || []).map((url, i)=>{
+        return <LinkCard key={i} url={url} fetchUrls={fnUrls}/>
+      })}
     </div>
   )
 }

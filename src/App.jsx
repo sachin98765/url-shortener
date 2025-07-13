@@ -11,6 +11,7 @@ import { RouterProvider } from 'react-router-dom'
 import UrlProvider from './context.jsx'
 
 import RequireAuth from './components/require-auth.jsx'
+import Header from './components/header.jsx'
 
 
 const router=createBrowserRouter([{

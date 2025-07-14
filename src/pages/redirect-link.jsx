@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import useFetch from '../hooks/use-fetch';
-import { getLongUrl, storeClicks } from '../db/apiUrls';
+import { getLongUrl } from '../db/apiUrls';
 import { BarLoader } from 'react-spinners';
+import { storeClicks } from '../db/apiClicks';
 
 const RedirectLink = () => {
 
@@ -15,8 +16,8 @@ const RedirectLink = () => {
   });
 
   useEffect(()=>{
-   if (id) fn() // ✅ call only if ID exists
-  }, [id])
+    fn() // ✅ call only if ID exists
+  }, [])
 
   
   useEffect(()=>{
